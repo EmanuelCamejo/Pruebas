@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -8,19 +12,13 @@ namespace Entidades
 
         #region Propiedades
 
-        //public string Numero
-        //{
-        //    get 
-        //    {
-        //        return numero.ToString();
-
-        //    }
-        //    set
-        //    {
-                
-        //        Operando.ValidarOperando()=value;
-        //    }
-        //}
+        public string Numero
+        {
+            set
+            {
+                numero = ValidarOperando(value);
+            }
+        }
 
         #endregion
 
@@ -37,57 +35,85 @@ namespace Entidades
 
         public Operando(string strNum1)
         {
-            this.numero = int.Parse(strNum1);
+            this.numero = double.Parse(strNum1);
         }
         #endregion
 
         #region Metodos
         private double ValidarOperando(string strNumero)
         {
-            double res,num;
+            double resultado, num;
+            bool esNumerico = double.TryParse(strNumero, out num);
 
-            bool a = double.TryParse(strNumero, out num);
-            if (a==true)
+            if (esNumerico)
             {
-                res = num;
+                resultado = num;
             }
             else
             {
-                res = 0;
+                resultado = 0;
             }
-            return res;
+            return resultado;
         }
 
         private bool EsBinario(string binario)
         {
-            bool res;
-
-            return res;
+            foreach (char c in binario)
+            {
+                if (c != '0' && c != '1')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        public static string DecimalABinario(double numero)
+        public string DecimalABinario(double numero)
         {
-            string binario = "";
+            string valorBinario = string.Empty;
+            int resultadoDivicion = (int)numero;
+            int resto;
+            if (resultadoDivicion >= 0)
+            {
+                do
+                {
+                    resto = resultadoDivicion % 2;
+                    resultadoDivicion /= 2;
+                    valorBinario = resto.ToString() + valorBinario;
 
-            while (numero / 2 > 0)
-            {
-                if (numero % 2 == 0)
-                    binario = "0" + binario;
-                if (numero % 2 == 1)
-                    binario = "1" + binario;
-                numero = numero / 2;
+                } while (resultadoDivicion > 0);
             }
-            if (numero == 0)
-            {
-                binario = "0" + binario;
-            }
-            if (numero == 1)
-            {
-                binario = "1" + binario;
-            }
-
-            return binario;
+            return valorBinario;
         }
+
+        public string DecimalABinario(string numero)
+        {
+            string valorBinario = DecimalABinario(double.Parse(numero));
+            return valorBinario;
+        }
+
+        public double BinarioADecimal(string binario)
+        {
+            double resultado = 0;
+            if (EsBinario(binario))
+            {
+                int cantidadCaracteres = binario.Length;
+                foreach (char caracter in binario)
+                {
+                    cantidadCaracteres--;
+                    if (caracter == '1')
+                    {
+                        resultado += (int)Math.Pow(2, cantidadCaracteres);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Valor inválido");
+            }
+            return resultado;
+        }
+
         #endregion
 
         #region Sobrecargas
@@ -95,14 +121,24 @@ namespace Entidades
         {
             return num1.numero + num2.numero;
         }
+
         public static double operator -(Operando num1, Operando num2)
         {
             return num1.numero - num2.numero;
         }
+
         public static double operator /(Operando num1, Operando num2)
         {
-            return num1.numero / num2.numero;
+            if (num2.numero == 0)
+            {
+                return double.MinValue;
+            }
+            else
+            {
+                return num1.numero / num2.numero;
+            }
         }
+
         public static double operator *(Operando num1, Operando num2)
         {
             return num1.numero * num2.numero;

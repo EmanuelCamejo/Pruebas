@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -11,21 +7,22 @@ namespace Entidades
         #region Metodos
         public static double Operar(Operando num1, Operando num2, char operador)
         {
+            char operadorValido = ValidarOperador(operador);
             double res = 0;
-            char validarOperador = ValidarOperador(operador);
-            if (validarOperador == '+')
+
+            if (operadorValido == '+')
             {
                 res = num1 + num2;
             }
-            if (validarOperador == '-')
+            if (operadorValido == '-')
             {
                 res = num1 - num2;
             }
-            if (validarOperador == '/')
+            if (operadorValido == '/')
             {
                 res = num1 / num2;
             }
-            if (validarOperador == '*')
+            if (operadorValido == '*')
             {
                 res = num1 * num2;
             }
@@ -33,19 +30,15 @@ namespace Entidades
         }
         private static char ValidarOperador(char operador)
         {
-            char res = ' ';
             if (operador == '+' || operador == '-' || operador == '/' || operador == '*')
             {
-                res = operador;
+                return operador;
             }
             else
             {
-
+                return '+';
             }
-            return res = '+';
         }
-
         #endregion
-
     }
 }
