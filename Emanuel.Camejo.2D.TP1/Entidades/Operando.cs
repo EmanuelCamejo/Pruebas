@@ -60,7 +60,7 @@ namespace Entidades
         {
             foreach (char c in binario)
             {
-                if (c != '0' && c != '1')
+                if (c != '0' || c != '1')
                 {
                     return false;
                 }
@@ -69,6 +69,13 @@ namespace Entidades
         }
 
         public string DecimalABinario(double numero)
+        {
+
+            double valorBinario = DecimalABinario(double.Parse(numero));
+            return valorBinario;
+        }
+
+        public string DecimalABinario(string numero)
         {
             string valorBinario = string.Empty;
             int resultadoDivicion = (int)numero;
@@ -83,12 +90,6 @@ namespace Entidades
 
                 } while (resultadoDivicion > 0);
             }
-            return valorBinario;
-        }
-
-        public string DecimalABinario(string numero)
-        {
-            string valorBinario = DecimalABinario(double.Parse(numero));
             return valorBinario;
         }
 

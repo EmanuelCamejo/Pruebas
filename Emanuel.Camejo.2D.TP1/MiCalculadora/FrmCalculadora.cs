@@ -38,7 +38,11 @@ namespace MiCalculadora
 
         private void FrmCalculadora_Load(object sender, EventArgs e)
         {
-
+            cmbOperador.Items.Add('+');
+            cmbOperador.Items.Add('-');
+            cmbOperador.Items.Add('*');
+            cmbOperador.Items.Add('/');
+            Limpiar();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -61,20 +65,25 @@ namespace MiCalculadora
             Operando numero2 = new Operando(txtNumero2.Text);
             double resultado = Calculadora.Operar(numero1, numero2,((char)cmbOperador.SelectedItem));
             lblResultado.Text = resultado.ToString();
-            lstOperaciones.Items.Add(resultado.ToString());
+            lstOperaciones.Items.Add($"{txtNumero1.Text} {cmbOperador.SelectedItem} {txtNumero2.Text} = {resultado.ToString()}");
         }
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             Operando numero1 = new Operando(txtNumero1.Text);
-            double resultado = numero1.BinarioADecimal(txtNumero1.ToString());
-            lstOperaciones.Items.Add(resultado.ToString());
+            double resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.ToString());           
+            lblResultado.Text = resultadoBinarioADecimal.ToString();           
+            lstOperaciones.Items.Add(resultadoBinarioADecimal.ToString());
+           
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             Operando numero1 = new Operando(txtNumero1.Text);
-            
+            string resultadoDecimalABinario = numero1.DecimalABinario(txtNumero1.ToString());
+            lblResultado.Text = resultadoDecimalABinario.ToString();
+            lstOperaciones.Items.Add(resultadoDecimalABinario.ToString());
+
         }
 
         private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
