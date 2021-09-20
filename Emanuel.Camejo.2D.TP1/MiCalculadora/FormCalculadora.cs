@@ -74,16 +74,16 @@ namespace MiCalculadora
         {
             Operando numero1 = new Operando();
             string resultadoDecimalABinario = numero1.DecimalABinario(txtNumero1.Text);
-            lblResultado.Text = resultadoDecimalABinario.ToString();
-            lstOperaciones.Items.Add($"El Binario de {txtNumero1.Text} es: {resultadoDecimalABinario.ToString()}");
+            lblResultado.Text = resultadoDecimalABinario;
+            lstOperaciones.Items.Add($"Conversión de {txtNumero1.Text} a Binario: {resultadoDecimalABinario}");
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             Operando numero1 = new Operando();
-            double resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.Text);
-            lblResultado.Text = resultadoBinarioADecimal.ToString();
-            lstOperaciones.Items.Add($"El Decimal de {txtNumero1.Text} es: { resultadoBinarioADecimal.ToString()}");
+            string resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.Text);
+            lblResultado.Text = resultadoBinarioADecimal;
+            lstOperaciones.Items.Add($"Conversión de {txtNumero1.Text} a Decimal: { resultadoBinarioADecimal}");
         }
 
         private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)

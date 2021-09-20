@@ -74,10 +74,15 @@ namespace Entidades
             return valorBinario;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         public string DecimalABinario(string numero)
         {
             string valorBinario = string.Empty;
-            int resultadoDivicion = int.Parse(numero);
+            int resultadoDivicion = Math.Abs(((int)double.Parse(numero)));//Obtengo el valor absoluto y entero
             int resto;
             if (resultadoDivicion >= 0)
             {
@@ -92,9 +97,9 @@ namespace Entidades
             return valorBinario;
         }
 
-        public double BinarioADecimal(string binario)
+        public string BinarioADecimal(string binario)
         {
-            double resultado = 0;
+            string resultado = "";
             if (EsBinario(binario))
             {
                 int cantidadCaracteres = binario.Length;
@@ -109,7 +114,7 @@ namespace Entidades
             }
             else
             {
-                Console.WriteLine("Valor inválido");
+                resultado = "Valor Invalido";
             }
             return resultado;
         }
