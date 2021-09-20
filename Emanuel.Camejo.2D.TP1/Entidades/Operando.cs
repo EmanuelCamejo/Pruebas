@@ -35,7 +35,7 @@ namespace Entidades
 
         public Operando(string strNum1)
         {
-            this.numero = double.Parse(strNum1);
+            Numero = strNum1;
         }
         #endregion
 
@@ -60,7 +60,7 @@ namespace Entidades
         {
             foreach (char c in binario)
             {
-                if (c != '0' || c != '1')
+                if (c != '0' && c != '1')
                 {
                     return false;
                 }
@@ -70,15 +70,14 @@ namespace Entidades
 
         public string DecimalABinario(double numero)
         {
-
-            double valorBinario = DecimalABinario(double.Parse(numero));
+            string valorBinario = DecimalABinario(numero);
             return valorBinario;
         }
 
         public string DecimalABinario(string numero)
         {
             string valorBinario = string.Empty;
-            int resultadoDivicion = (int)numero;
+            int resultadoDivicion = int.Parse(numero);
             int resto;
             if (resultadoDivicion >= 0)
             {

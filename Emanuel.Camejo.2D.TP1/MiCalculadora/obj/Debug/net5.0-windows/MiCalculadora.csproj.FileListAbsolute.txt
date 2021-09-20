@@ -24,7 +24,6 @@ D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\bin\Debug\net5.0-windows\ref\MiCalculadora.dll
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\bin\Debug\net5.0-windows\MiCalculadora.pdb
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.AssemblyReference.cache
-D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.FrmCalculadora.resources
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.Properties.Resources.resources
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.GenerateResource.cache
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.GeneratedMSBuildEditorConfig.editorconfig
@@ -38,3 +37,4 @@ D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\bin\Debug\net5.0-windows\Entidades.dll
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\bin\Debug\net5.0-windows\Entidades.pdb
 D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.CopyComplete
+D:\Facultad\2do cuatrimestre 2021\Program II - Lab II\tp_pruebas\Emanuel.Camejo.2D.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.FormCalculadora.resources

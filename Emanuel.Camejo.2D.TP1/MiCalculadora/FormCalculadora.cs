@@ -11,26 +11,30 @@ using Entidades;
 
 namespace MiCalculadora
 {
-    public partial class FrmCalculadora : Form
+    public partial class FormCalculadora : Form
     {
-        public FrmCalculadora()
+        public FormCalculadora()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Limpio los TextBox el ComboBox y el Label de la pantalla 
+        /// </summary>
         public void Limpiar()
         {
             txtNumero1.Clear();
             txtNumero2.Clear();
             cmbOperador.SelectedIndex = -1;
-            lblResultado.Text = "";
             lstOperaciones.ClearSelected();
         }
 
-        private double Operar(string numero1, string numero2, string operador)
+        private static double Operar(string numero1, string numero2, string operador)
         {
-            double res = 0;
-            return res;
+            Operando  operando1 = new Operando(numero1);
+            Operando  operando2 = new Operando(numero2);
+            double resultado = Calculadora.Operar(operando1, operando2, char.Parse(operador));
+            return resultado;
         }
 
 
@@ -61,29 +65,25 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            Operando numero1 = new Operando(txtNumero1.Text);
-            Operando numero2 = new Operando(txtNumero2.Text);
-            double resultado = Calculadora.Operar(numero1, numero2,((char)cmbOperador.SelectedItem));
+            double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.SelectedItem.ToString());
             lblResultado.Text = resultado.ToString();
             lstOperaciones.Items.Add($"{txtNumero1.Text} {cmbOperador.SelectedItem} {txtNumero2.Text} = {resultado.ToString()}");
         }
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            Operando numero1 = new Operando(txtNumero1.Text);
-            double resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.ToString());           
-            lblResultado.Text = resultadoBinarioADecimal.ToString();           
-            lstOperaciones.Items.Add(resultadoBinarioADecimal.ToString());
-           
+            Operando numero1 = new Operando();
+            string resultadoDecimalABinario = numero1.DecimalABinario(txtNumero1.Text);
+            lblResultado.Text = resultadoDecimalABinario.ToString();
+            lstOperaciones.Items.Add($"El Binario de {txtNumero1.Text} es: {resultadoDecimalABinario.ToString()}");
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            Operando numero1 = new Operando(txtNumero1.Text);
-            string resultadoDecimalABinario = numero1.DecimalABinario(txtNumero1.ToString());
-            lblResultado.Text = resultadoDecimalABinario.ToString();
-            lstOperaciones.Items.Add(resultadoDecimalABinario.ToString());
-
+            Operando numero1 = new Operando();
+            double resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.Text);
+            lblResultado.Text = resultadoBinarioADecimal.ToString();
+            lstOperaciones.Items.Add($"El Decimal de {txtNumero1.Text} es: { resultadoBinarioADecimal.ToString()}");
         }
 
         private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
