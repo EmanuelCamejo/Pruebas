@@ -5,6 +5,11 @@ namespace Entidades
     public class Calculadora
     {
         #region Metodos
+
+        /// <summary>
+        /// Realiza la operacion pedida entre los números recibidos por parametro
+        /// </summary>
+        /// <returns></returns>
         public static double Operar(Operando num1, Operando num2, char operador)
         {
             char operadorValido = ValidarOperador(operador);
@@ -28,6 +33,11 @@ namespace Entidades
             }
             return res;
         }
+
+        /// <summary>
+        /// Valida el Operador recibido por parametro
+        /// </summary>
+        /// <returns></returns>
         private static char ValidarOperador(char operador)
         {
             if (operador == '+' || operador == '-' || operador == '/' || operador == '*')

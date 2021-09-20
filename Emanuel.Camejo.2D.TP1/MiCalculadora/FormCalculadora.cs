@@ -73,7 +73,7 @@ namespace MiCalculadora
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             Operando numero1 = new Operando();
-            string resultadoDecimalABinario = numero1.DecimalABinario(txtNumero1.Text);
+            string resultadoDecimalABinario = numero1.DecimalBinario(txtNumero1.Text);
             lblResultado.Text = resultadoDecimalABinario;
             lstOperaciones.Items.Add($"Conversión de {txtNumero1.Text} a Binario: {resultadoDecimalABinario}");
         }
@@ -81,7 +81,7 @@ namespace MiCalculadora
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             Operando numero1 = new Operando();
-            string resultadoBinarioADecimal = numero1.BinarioADecimal(txtNumero1.Text);
+            string resultadoBinarioADecimal = numero1.BinarioDecimal(txtNumero1.Text);
             lblResultado.Text = resultadoBinarioADecimal;
             lstOperaciones.Items.Add($"Conversión de {txtNumero1.Text} a Decimal: { resultadoBinarioADecimal}");
         }

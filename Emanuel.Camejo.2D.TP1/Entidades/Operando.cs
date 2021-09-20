@@ -35,7 +35,7 @@ namespace Entidades
 
         public Operando(string strNum1)
         {
-            Numero = strNum1;
+            Numero = strNum1;//Utilizo la propiedad para validar el string recibido
         }
         #endregion
 
@@ -68,18 +68,11 @@ namespace Entidades
             return true;
         }
 
-        public string DecimalABinario(double numero)
-        {
-            string valorBinario = DecimalABinario(numero);
-            return valorBinario;
-        }
-
         /// <summary>
-        /// 
+        /// Convierte un número Decimal a Binario.
         /// </summary>
-        /// <param name="numero"></param>
         /// <returns></returns>
-        public string DecimalABinario(string numero)
+        public string DecimalBinario(string numero)
         {
             string valorBinario = string.Empty;
             int resultadoDivicion = Math.Abs(((int)double.Parse(numero)));//Obtengo el valor absoluto y entero
@@ -97,7 +90,21 @@ namespace Entidades
             return valorBinario;
         }
 
-        public string BinarioADecimal(string binario)
+        /// <summary>
+        /// Sobrecarga del metodo DecimalBinario
+        /// </summary>
+        /// <returns></returns>
+        public string DecimalBinario(double numero)
+        {
+            string valorBinario = DecimalBinario(numero);
+            return valorBinario;
+        }
+
+        /// <summary>
+        /// Convierte un número Binario a Decimal, utilizo el metodo EsBinario para el parametro recibido.
+        /// </summary>
+        /// <returns></returns>
+        public string BinarioDecimal(string binario)
         {
             string resultado = "";
             if (EsBinario(binario))
@@ -121,7 +128,9 @@ namespace Entidades
 
         #endregion
 
-        #region Sobrecargas
+        #region Sobrecargas de Operador 
+        //Creo las sobrecarga de los operadores para poder hacer las operaciones
+        
         public static double operator +(Operando num1, Operando num2)
         {
             return num1.numero + num2.numero;
@@ -148,8 +157,6 @@ namespace Entidades
         {
             return num1.numero * num2.numero;
         }
-
-
         #endregion
     }
 }
