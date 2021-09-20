@@ -86,11 +86,6 @@ namespace MiCalculadora
             lstOperaciones.Items.Add($"Conversión de {txtNumero1.Text} a Decimal: { resultadoBinarioADecimal}");
         }
 
-        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         #endregion
     }
 }

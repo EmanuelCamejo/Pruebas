@@ -50,7 +50,7 @@ namespace MiCalculadora
             this.cmbOperador.Size = new System.Drawing.Size(141, 23);
             this.cmbOperador.Sorted = true;
             this.cmbOperador.TabIndex = 2;
-            this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.cmbOperador_SelectedIndexChanged);
+   
             // 
             // txtNumero2
             // 
